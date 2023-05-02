@@ -1,12 +1,13 @@
 const initialState = {
-  cat: [
-    {
-      id: '4k2',
-      url: 'https://cdn2.thecatapi.com/images/4k2.gif',
-      width: 440,
-      height: 320,
-    },
-  ],
+  cat: null,
+
+  // {
+  //   id: '4k2',
+  //   url: 'https://cdn2.thecatapi.com/images/4k2.gif',
+  //   width: 440,
+  //   height: 320,
+  // },
+
   catLoadingStatus: 'idle',
 }
 
@@ -20,14 +21,8 @@ const cat = (state = initialState, action) => {
     case 'CAT_FETCHED':
       return {
         ...state,
-        cat: [
-          {
-            id: action.payload.id,
-            url: action.payload.url,
-            width: action.payload.width,
-            height: action.payload.height,
-          },
-        ],
+        cat: action.payload,
+
         catLoadingStatus: 'idle',
       }
     case 'CAT_FETCHING_ERROR':

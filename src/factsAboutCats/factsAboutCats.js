@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from 'react'
 import './factsAboutCats.scss'
-import { useHttp } from '../hooks/http.hook'
 
 const FactsAboutCats = ({ fact }) => {
   return (

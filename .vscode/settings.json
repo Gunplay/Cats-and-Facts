@@ -1,0 +1,48 @@
+{
+  "editor.formatOnSave": true,
+  "security.workspace.trust.untrustedFiles": "open",
+  "files.autoSave": "onFocusChange",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "editor.suggestSelection": "first",
+  "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "open-in-browser.default": "Chrome",
+  "debug.javascript.defaultRuntimeExecutable": {
+
+    "pwa-node": "node"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  // "liveSassCompile.settiдаngs.rootIsWorkspace": null,
+  "liveSassCompile.settings.includeItems": [],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "~/Learn HTML, CSS/Home 02 Модуль 2. Ускорение работы в несколько раз/038 Практика. Адаптация проекта. Часть 1/css/style.min.css"
+    }
+  ],
+  "liveSassCompile.settings.autoprefix": [
+    
+    "> 1%", "last 2 versions"],
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorTheme": "Atom One Dark",
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "files.exclude": {
+    "**/.git": false
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chatgpt.gpt3.apiKey": "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",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "liveServer.settings.AdvanceCustomBrowserCmdLine": ""
+}

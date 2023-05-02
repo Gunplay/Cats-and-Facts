@@ -2,44 +2,39 @@ import './App.css'
 import Cat from './cats/cat'
 import FactsAboutCats from './factsAboutCats/factsAboutCats'
 import Button from './button/button'
-import { useState } from 'react'
-import { useHttp } from './hooks/http.hook'
+import Spinner from './spinner/Spinner'
 
-const apiUrl = process.env.REACT_APP_API_URL // RESTART NPM START
-const apiKey = process.env.REACT_APP_API_KEY
-const apiFact = process.env.REACT_APP_API_URL_FACT
+import { catFetching, catFetched, fetchCatAndFact } from './action'
+
+import { useHttp } from './hooks/http.hook'
+import { useCallback, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { createSelector } from 'reselect'
 
 function App() {
+  const dispatch = useDispatch()
   const { request } = useHttp()
-  const [data, setData] = useState([])
 
-  const onHandlerRandomCatAndFact = async (e) => {
-    e.preventDefault()
-    // const resultCat[0].url
+  const cat = useSelector((state) => state.cat.cat)
+  console.log('cat', cat)
+  const isLoading = useSelector((state) => state.cat.catLoadingStatus)
+  console.log('isLoading', isLoading)
 
-    try {
-      const [catResult, factResult] = await Promise.all([
-        request(`${apiUrl}images/search?api_key=${apiKey}`),
-        request(`${apiFact}`),
-      ])
-      const [{ url }] = catResult
-      const { fact } = factResult
-      setData([url, fact])
-    } catch (error) {
-      console.log(error)
-    }
+  useEffect(() => {
+    dispatch(fetchCatAndFact(request))
+  }, [])
 
-    // const [{ url }] = await request(`${apiUrl}images/search?api_key=${apiKey}`)
-
-    // const { fact } = await request(`${apiFact}`)
-  }
-
-  console.log('data', data)
   return (
     <div className="App">
-      <Cat cat={data[0]} />
-      <FactsAboutCats fact={data[1]} />
-      <Button setData={setData} changeCat={onHandlerRandomCatAndFact} />
+      {isLoading === 'loading' ? (
+        <Spinner />
+      ) : (
+        <>
+          <Cat />
+          <FactsAboutCats f />
+        </>
+      )}
+      <Button />
     </div>
   )
 }

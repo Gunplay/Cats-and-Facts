@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React from 'react'
 import './cat.scss'
+import { useSelector } from 'react-redux'
 
-const Cat = ({ cat }) => {
-  return (
-    <div>
-      <img
-        src={cat ? cat : 'https://cdn2.thecatapi.com/images/2kh.jpg'}
-        alt="Random Cat"
-        className="cat__main-picture"
-      />
-    </div>
-  )
+const Cat = () => {
+  const catUrl = useSelector((state) => state.cat.cat)
+  console.log('catUrl', catUrl)
+
+  return <img src={catUrl && catUrl.url} alt="cat" />
 }
 
 export default Cat
