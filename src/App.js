@@ -31,7 +31,7 @@ function App() {
       ) : (
         <>
           <Cat />
-          <FactsAboutCats f />
+          <FactsAboutCats />
         </>
       )}
       <Button />
