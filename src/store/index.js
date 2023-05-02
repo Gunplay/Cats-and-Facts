@@ -7,8 +7,8 @@ import fact from '../reducers/fact'
 const store = createStore(
   combineReducers({ cat, fact }),
   compose(
-    applyMiddleware(ReduxThunk),
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    applyMiddleware(ReduxThunk)
+    // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
   )
 )
 
